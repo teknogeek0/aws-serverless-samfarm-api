@@ -6,12 +6,18 @@ Parameters:
     OriginUrl:
         Description: "The origin url to allow CORS requests from. This will be the base URL of your static SAM website."
         Type: "String"
+
+#### NEW!!!
+Globals:
+  Function:
+    Runtime: nodejs6.10
+    Timeout: 180
+
 Resources:
     GetSAMPartyCount:
         Type: AWS::Serverless::Function
         Properties:
             Handler: index.handler
-            Runtime: nodejs4.3
             CodeUri: ./
             Tracing: Active
             Environment:
@@ -24,3 +30,4 @@ Resources:
                 Properties:
                   Path: /sam
                   Method: get
+
